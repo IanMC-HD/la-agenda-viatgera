@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ca">
+    <head>
+        <meta charset="UTF-8">
+        <title>L'Agenda Viatgera</title>
+        <meta name="description" content="El Millors viatges, experiencies i consells, tot aqui.">
+        <link rel="icon" href="icono_L'AgendaViatgera.ico" type="image/x-icon">
+        <style>
+            .main-header {
+            width: 100%;
+            border-bottom: 1px solid #eee; 
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); 
+            background-color: #fff;
+            }
+            .nav {
+                max-width: 1200px; 
+                margin: 0 auto; 
+                display: flex; 
+                justify-content: space-between;
+                align-items: center; 
+                padding: 0 20px; 
+            }
+            .logo-link {
+                display: flex;
+                align-items: center;
+                text-decoration: none; 
+                color: #000; 
+            }
+            .logo-img {
+                content: url("icono_L\'AgendaViatgera.png");
+                width: auto;
+                height: 50px;
+                margin-right: 10px;
+            }
+            .logo-text {
+                display: none;
+            }
+            .nav-llista {
+                list-style: none; 
+                padding: 0;
+                margin: 0;
+                display: flex; 
+            }
+            .nav-item {
+                margin-left: 30px;
+            }
+            .nav-link {
+                text-decoration: none; 
+                color: #333; 
+                font-size: 1em;
+                font-weight: 400;
+                transition: color 0.3s;
+            }
+            .nav-link:hover {
+                color: #c9622d; 
+            }
+            .Principi {
+                height: 400px;
+                background-image: url("Blogs/Portades/Hong-Kong.jpg"); 
+                background-size: cover; 
+                background-position: center; 
+                position: relative; 
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
+            .Principi-img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(97, 41, 14, 0.5); 
+                z-index: 1; 
+            }
+            .contingut-Principi {
+                position: relative;
+                z-index: 2; 
+                color: white;
+                max-width: 800px;
+                padding: 20px;
+            }
+            .contingut-Principi h1 {
+                font-size: 3em;
+                margin-bottom: 0.5em;
+            }
+            .contingut-Principi p {
+                font-size: 1.2em;
+                margin-bottom: 1.5em;
+            }
+            .Contingut {
+                background-color: #f7f3e8;
+            }
+            .Pag-Contingut {
+                background-color: white;
+                border-radius: 10px;
+                margin-bottom: 20px;
+                margin-top: 20px;
+                margin-right: 200px;
+                margin-left: 200px;
+                overflow: hidden;
+                padding: 60px 20px;
+                text-align: justify;
+            }
+            .contingut-inici {
+                padding: 10px;
+                text-align: justify;
+                margin-left: 50px;
+                margin-right: 50px;
+            }
+            .contingut-final {
+                padding: 10px;
+                text-align: center;
+                margin-left: 50px;
+                margin-right: 50px;
+            }
+            hr {
+                margin-left: 100px;
+                margin-right: 100px;
+            }
+            .Titul-apartat {
+                color: #0d2c4e;
+                font-size: 2em;
+                margin-bottom: 40px;
+                margin-top: 40px;
+                margin-right: 30px;
+                margin-left: 30px;
+                text-align: left;
+            }
+            table {
+                border-collapse: separate; 
+                width: 175%;
+            }
+            .colm-imm {
+            width: 50%;
+            padding: 0;
+            vertical-align: top;
+            }
+            .imatge-targeta {
+            width: 100%; 
+            height: auto; 
+            object-fit: cover; 
+            display: block;
+            }
+            .text-targeta {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            font-size: 16px;
+            width: 40%;
+            padding: 15px;
+            vertical-align: top;
+            }
+            .peudepagina {
+                background-color: #0d2c4e; 
+                color: white;
+                padding-top: 50px;
+            }
+            .contingut-peu {
+                display: grid;
+                grid-template-columns: 2fr 1fr 1fr; 
+                gap: 40px;
+                padding: 0 20px 40px;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+            .peu-pag h4 {
+                color: #ffffff;
+                font-size: 1.2em;
+                margin-bottom: 20px;
+                border-bottom: 2px solid #e56d35;
+                padding-bottom: 5px;
+                display: inline-block;
+            }
+            .peu-pag ul {
+                list-style: none;
+                padding: 0;
+            }
+            .peu-pag ul li {
+                margin-bottom: 8px;
+            }
+            .peu-pag ul li a {
+                color: #cccccc;
+                font-size: 0.95em;
+                transition: color 0.3s;
+            }
+            .peu-pag ul li a:hover {
+                color: #e56d35;
+            }
+            .newsletter-form {
+                display: flex;
+                margin-top: 15px;
+            }
+            .newsletter-form input[type="email"] {
+                padding: 10px;
+                border: none;
+                border-radius: 4px 0 0 4px;
+                flex-grow: 1;
+            }
+            .newsletter-btn {
+                padding: 10px 15px;
+                background-color: #e56d35; 
+                color: white;
+                border: none;
+                border-radius: 0 4px 4px 0;
+                cursor: pointer;
+                font-weight: bold;
+                transition: background-color 0.3s;
+            }
+            .newsletter-btn:hover {
+                background-color: #c95c2d;
+            }
+            .xarxes {
+                margin-top: 20px;
+            }
+            .xarxes img {
+                font-size: 1.5em;
+                color: #cccccc;
+                margin-right: 15px;
+                text-decoration: none;
+                transition: color 0.3s;
+            }
+            .xarxes img:hover{
+                transform: scale(1.2);
+                filter: drop-shadow(0 0 8px #e56d35);
+            }
+            .copyright {
+                text-align: center;
+                padding: 15px 20px;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+                font-size: 0.8em;
+                color: #cccccc;
+            }
+        </style>
+    </head>
+    <body>
+        <header class="main-header">
+        <nav class="nav">
+            <a class="logo">
+                <img src="icono_L'AgendaViatgera.png" alt="L'Agenda Viatgera Logo" class="logo-img">
+                <span class="logo-text">L'Agenda Viatgera</span>
+            </a>
+            <ul class="nav-llista">
+                <li class="nav-item"><a href="L'Agenda_Viatgera_Home.html" class="nav-link">Inici</a></li>
+                <li class="nav-item"><a href="Blog.html" class="nav-link">Blogs</a></li>
+                <li class="nav-item"><a href="Guies_i_Consells.html" class="nav-link">Guies i Consells</a></li>
+                <li class="nav-item"><a href="Contacte.html" class="nav-link">Contacte</a></li>
+                <li class="nav-item"><a href="Sobre_Nosaltres.html" class="nav-link">Sobre Nosaltres</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="Principi">
+        <div class="Principi-img">
+            <div class="contingut-Principi">
+                <h1>Hong Kong:<br>La Ciutat de les Mil Caras</h1>
+                <p>Una guia completa per navegar per la metròpoli asiàtica: mercats nocturns, muntanyes i temples amagats.</p>
+                <cite>Publicat per: Carmen Ruiz</cite>
+            </div>
+        </div>
+    </section>
+    <section class="Contingut">
+        <section class="Pag-Contingut">
+            <hr>
+            <h3 class="contingut-inici">Acabem de tornar d'una aventura increïble a Hong Kong i encara estem flotant en un núvol! Ha estat un viatge inoblidable amb els meus fills i el meu marit, ple de contrastos, des del bullici modern fins a la pau de les muntanyes. Aquí us deixo un petit resum dels nostres imprescindibles.</h3>
+            <hr>
+            <table class="table">
+                <tr class="sin-puntos">
+                    <td class="colm-img">
+                        <img src="Blogs/IMG/Hong-Kong/Victoria_Peak.png" alt="Victoria Peak de Hong Kong" class="imatge-targeta">
+                    </td>
+                    <td>
+                        <h2 class="Titul-apartat">1. El Cim Il·luminat:<br>Victoria Peak i el Festival de Llums</h2>
+                        <p class="text-targeta">No podeu anar a Hong Kong sense pujar a <strong>Victoria Peak</strong>. La vista panoràmica de la badia i els gratacels és, simplement, d'un altre món, especialment al capvespre. Vam tenir la sort d'anar-hi durant la temporada del festival <strong>"Symbolic Lights"</strong> (l'espectacle de llums Symphony of Lights). Veure la ciutat de nit, amb tots aquests edificis convertits en un llenç de colors dansants, va ser el moment "wow!" del viatge per a tota la família.</p>
+                    </td>
+                </tr>
+                <tr class="sin-puntos">
+                    <td class="colm-img">
+                        <img src="Blogs/IMG/Hong-Kong/Gran_Buda.png" alt="El Gran Buda de Hong Kong" class="imatge-targeta">
+                    </td>
+                    <td>
+                        <h2 class="Titul-apartat">2. Una Trobada Majestuosa:<br>El Gran Buda Tian Tan</h2>
+                        <p class="text-targeta">Per a un canvi de ritme total, vam agafar el telefèric Ngong Ping 360 (les cabines de vidre són emocionants!) per visitar el <strong>Gran Buda Tian Tan</strong> a l'illa de <i>Lantau</i>. És una de les estàtues de Buda assegut a l'aire lliure més grans del món. Pujar els 268 esglaons va ser un petit desafiament, però la serenitat i les vistes que es tenen des de la base són la recompensa perfecta. Els nens van quedar impressionats per la seva grandària imponent.</p>
+                    </td>
+                </tr>
+                <tr class="sin-puntos">
+                    <td class="colm-img">
+                        <img src="Blogs/IMG/Hong-Kong/Temple_Man_Mo.png" alt="El Temple Man Mo de Hong Kong" class="imatge-targeta">
+                    </td>
+                    <td>
+                        <h2 class="Titul-apartat">3. Aroma d'Història:<br>El Temple Man Mo</h2>
+                        <p class="text-targeta">Enmig del modern districte de <i>Sheung Wan</i>, vam trobar l'oasi de calma del <strong>Temple Man Mo</strong>. Aquest temple està dedicat als déus de la Literatura (Man) i de la Guerra (Mo). El que més ens va fascinar va ser el fum dens de les espirals d'encens gegants que pengen del sostre, creant una atmosfera mística i inoblidable. És un respir històric i cultural a la jungla d'asfalt.</p>
+                    </td>
+                </tr>
+                <tr class="sin-puntos">
+                    <td class="colm-img">
+                        <img src="Blogs/IMG/Hong-Kong/Mercat_Nocturn.png" alt="El Mercat Nocturn de Hong Kong" class="imatge-targeta">
+                    </td>
+                    <td>
+                        <h2 class="Titul-apartat">4. Tresors i Sabors:<br>El Mercat Nocturn</h2>
+                        <p class="text-targeta">Una nit ens vam aventurar al <strong>Mercat Nocturn de Temple Street</strong>. És una festa per als sentits! Des de parades de souvenirs (on regatejar és part de la diversió) fins a la immensa varietat de street food. Vam poder provar plats locals deliciosos i sentir l'autèntic pols de Hong Kong. És el lloc perfecte per comprar records i sopar alguna cosa ràpida i saborosa.</p>
+                    </td>
+                </tr>
+                <tr class="sin-puntos">
+                    <td class="colm-img">
+                        <img src="Blogs/IMG/Hong-Kong/Dragons_Back.png" alt="La Muntanya de Dragon's Back de Hong Kong" class="imatge-targeta">
+                    </td>
+                    <td>
+                        <h2 class="Titul-apartat">5. Escapada a la Natura:<br>Dragon's Back</h2>
+                        <p class="text-targeta">Hong Kong no són només gratacels; també té una natura espectacular. Per estirar les cames i gaudir de l'aire lliure, vam fer una petita caminada per la <strong>Dragon's Back</strong>. És una ruta relativament fàcil i les vistes del mar i les platges són meravelloses. És un pla ideal si busques una mica de pau després de l'enrenou de la ciutat.</p>
+                    </td>
+                </tr>
+            </table>
+            <hr>
+            <h3 class="contingut-final">Hong Kong és una destinació que ho té tot: història, modernitat, menjar increïble i natura. Hi tornarem segur!</h3>
+        </section>
+    </section>
+    <footer class="peudepagina">
+        <div class="contingut-peu">
+            <div class="peu-pag newsletter-peu">
+                <h4>No et perdis cap viatge!</h4>
+                <p>Subscriu-te a la nostra newsletter i rep consells i ofertes exclusives.</p>
+                <form action="0Confirmacio.html" method="POST" class="newsletter-form">
+                    <input type="email" name="email" placeholder="Introdueix el teu correu electrònic" required>
+                    <button type="submit" class="newsletter-btn">Subscriu-me</button>
+                </form>
+            </div>
+            <div class="peu-pag link-peu">
+                <h4>Seccions</h4>
+                <ul>
+                    <li><a href="L'Agenda_Viatgera_Home.html">Inici</a></li>
+                    <li><a href="Blog.html">Blog</a></li>
+                    <li><a href="Guies_i_Consells.html">Guies i Consells</a></li>
+                    <li><a href="Contacte.html">Contacte</a></li>
+                </ul>
+            </div>
+            <div class="peu-pag xarxa-peu">
+                <h4>Informació Legal</h4>
+                <ul>
+                    <li><a href="Politica_Priv.html">Política de Privacitat</a></li>
+                    <li><a href="Contacte.html">Contacte</a></li>
+                </ul>
+                <table class="xarxes">
+                <tr class="sin-puntos">
+                    <td><a href="https://www.instagram.com" target="_blank">
+                            <img src="Icones/Instagram.jpeg" alt="Instagram" title="Instagram" width="50">
+                        </a>
+                    </td>
+                    <td><a href="https://twitter.com" target="_blank">
+                            <img src="Icones/Twitter.png" alt="Twitter" title="Twitter" width="50">
+                        </a>
+                    </td>
+                    <td><a href="https://www.facebook.com" target="_blank">
+                            <img src="Icones/Facebook.png" alt="Facebook" title="Facebook" width="50">
+                        </a>
+                    </td>
+                </tr>
+                </table>
+            </div>
+        <div class="copyright">
+            <p>&copy; 2025 L'Agenda Viatgera. Tots els drets reservats.</p>
+        </div>
+    </div>
+    </footer>
+    </body>
+</html>

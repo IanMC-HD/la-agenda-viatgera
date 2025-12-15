@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ca">
+    <head>
+        <meta charset="UTF-8">
+        <title>L'Agenda Viatgera</title>
+        <meta name="description" content="El Millors viatges, experiencies i consells, tot aqui.">
+        <link rel="icon" href="icono_L'AgendaViatgera.ico" type="image/x-icon">
+        <style>
+            .main-header {
+            width: 100%;
+            border-bottom: 1px solid #eee; 
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); 
+            background-color: #fff;
+            }
+            .nav {
+                max-width: 1200px; 
+                margin: 0 auto; 
+                display: flex; 
+                justify-content: space-between;
+                align-items: center; 
+                padding: 0 20px; 
+            }
+            .logo-link {
+                display: flex;
+                align-items: center;
+                text-decoration: none; 
+                color: #000; 
+            }
+            .logo-img {
+                content: url("icono_L\'AgendaViatgera.png");
+                width: auto;
+                height: 50px;
+                margin-right: 10px;
+            }
+            .logo-text {
+                display: none;
+            }
+            .nav-llista {
+                list-style: none; 
+                padding: 0;
+                margin: 0;
+                display: flex; 
+            }
+            .nav-item {
+                margin-left: 30px;
+            }
+            .nav-link {
+                text-decoration: none; 
+                color: #333; 
+                font-size: 1em;
+                font-weight: 400;
+                transition: color 0.3s;
+            }
+            .nav-link:hover {
+                color: #c9622d; 
+            }
+            .Sobre-Nosaltres {
+                background-color: #f7f3e8;
+                text-align: justify;
+            }
+            .Pag-Sobre-Nosaltres {
+                background-color: white;
+                border-radius: 10px;
+                margin-bottom: 20px;
+                margin-top: 20px;
+                margin-right: 200px;
+                margin-left: 200px;
+                overflow: hidden;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                transition: transform 0.3s, box-shadow 0.3s;
+            }
+            .titul-pag-sobre {
+                color: #0d2c4e;
+                font-size: 2.5em;
+                margin-bottom: 40px;
+                margin-top: 40px;
+                margin-right: 30px;
+                margin-left: 30px;
+            }
+            .sub-titul-pag-sobre {
+                color: #0d2c4e;
+                font-size: 2em;
+                margin-bottom: 40px;
+                margin-top: 40px;
+                margin-right: 30px;
+                margin-left: 30px;
+            }
+            .sub-sub-titul-pag-sobre {
+                color: #0d2c4e;
+                font-size: 1.5em;
+                margin-bottom: 40px;
+                margin-top: 40px;
+                margin-right: 30px;
+                margin-left: 30px;
+            }
+            p {
+                color: #000000;
+                margin-bottom: 20px;
+                margin-top: 20px;
+                margin-right: 30px;
+                margin-left: 30px;
+                line-height: 1.6;
+            }
+            .boto-contacte {
+                display: inline-block;
+                padding: 10px 20px;
+                background-color: #e56d35;
+                color: white;
+                border-radius: 4px;
+                font-weight: bold;
+                margin-top: 15px;
+                margin-bottom: 15px;
+                margin-right: 50px;
+                margin-left: 50px;
+            }
+            .excepcion-box {
+                border-left: 50px solid #333333;
+                padding-left: 15px;
+                margin: 20px 0;
+                font-size: 1.1em;
+                line-height: 1.5;
+            }
+            .excepcion-box p {
+                margin: 0;
+            }
+            .peudepagina {
+                background-color: #0d2c4e; 
+                color: white;
+                padding-top: 50px;
+            }
+            .contingut-peu {
+                display: grid;
+                grid-template-columns: 2fr 1fr 1fr; 
+                gap: 40px;
+                padding: 0 20px 40px;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+            .peu-pag h4 {
+                color: #ffffff;
+                font-size: 1.2em;
+                margin-bottom: 20px;
+                border-bottom: 2px solid #e56d35;
+                padding-bottom: 5px;
+                display: inline-block;
+            }
+            .peu-pag ul {
+                list-style: none;
+                padding: 0;
+            }
+            .peu-pag ul li {
+                margin-bottom: 8px;
+            }
+            .peu-pag ul li a {
+                color: #cccccc;
+                font-size: 0.95em;
+                transition: color 0.3s;
+            }
+            .peu-pag ul li a:hover {
+                color: #e56d35;
+            }
+            .newsletter-form {
+                display: flex;
+                margin-top: 15px;
+            }
+            .newsletter-form input[type="email"] {
+                padding: 10px;
+                border: none;
+                border-radius: 4px 0 0 4px;
+                flex-grow: 1;
+            }
+            .newsletter-btn {
+                padding: 10px 15px;
+                background-color: #e56d35; 
+                color: white;
+                border: none;
+                border-radius: 0 4px 4px 0;
+                cursor: pointer;
+                font-weight: bold;
+                transition: background-color 0.3s;
+            }
+            .newsletter-btn:hover {
+                background-color: #c95c2d;
+            }
+            .xarxes {
+                margin-top: 20px;
+            }
+            .xarxes img {
+                font-size: 1.5em;
+                color: #cccccc;
+                margin-right: 15px;
+                text-decoration: none;
+                transition: color 0.3s;
+            }
+            .xarxes img:hover{
+                transform: scale(1.2);
+                filter: drop-shadow(0 0 8px #e56d35);
+            }
+            .copyright {
+                text-align: center;
+                padding: 15px 20px;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+                font-size: 0.8em;
+                color: #cccccc;
+            }
+        </style>
+    </head>
+    <body>
+        <header class="main-header">
+        <nav class="nav">
+            <a class="logo">
+                <img src="icono_L'AgendaViatgera.png" alt="L'Agenda Viatgera Logo" class="logo-img">
+                <span class="logo-text">L'Agenda Viatgera</span>
+            </a>
+            <ul class="nav-llista">
+                <li class="nav-item"><a href="L'Agenda_Viatgera_Home.html" class="nav-link">Inici</a></li>
+                <li class="nav-item"><a href="Blog.html" class="nav-link">Blogs</a></li>
+                <li class="nav-item"><a href="Guies_i_Consells.html" class="nav-link">Guies i Consells</a></li>
+                <li class="nav-item"><a href="Contacte.html" class="nav-link">Contacte</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="Sobre-Nosaltres">
+        <section class="Pag-Sobre-Nosaltres">
+        <h1 class="titul-pag-sobre">Sobre Nosaltres</h1>
+            <section class="Qui">
+                <h3 class="sub-titul-pag-sobre">Qui Som?</h3>
+                <p>L’Agenda Viatgera és un blog i agència de viatges propietat de Viatges Únics S.L.</p>
+            </section>
+            <hr>
+            <section class="Més">
+                <h3 class="sub-titul-pag-sobre">Més Sobre Nosaltres</h3>
+                <p>Viatges Únics S.L va néixer de la passió del nostre cap. Després d’anys viatjant de motxiller i organitzant rutes a mida per a amics i familiars. El somni va començar a prendre forma a finals del 2015, quan vam començar a dissenyar itineraris on la logística fos impecable i la descoberta cultural, inoblidable.</p>
+                <p>La nostra filosofia de personalització i acompanyament constant ens va permetre créixer ràpidament, marcant diverses fites clau:
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>1. 2016 – El Naixement de L’Agenda Viatgera:</strong> Vam llançar el nostre blog com a recurs gratuït, compartint consells d’expert i rutes detallades, guanyant una comunitat de viatgers fidels. 
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>2. 2018 – Especialització en Àsia i Europa:</strong> Després de la demanda creixent, vam establir col·laboracions amb guies locals a Tailàndia, Japó i grans paisos europeus com Italia, Alemania i França, cosa que ens<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;va permetre oferir experiències molt més autèntiques i fora dels circuits turístics habituals. 
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>3. 2020 – Adaptació i Creixement Digital:</strong> Vam superar la crisi global centrant-nos en l’atenció personalitzada i les garanties flexibles de cancel·lació, cosa que va consolidar la confiança dels nostres clients.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vam ser pioners a oferir plans de viatge completament digitals i amb assistència 24/7. 
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>4. Actualitat – Experts en Logística Complexa:</strong> Avui, som reconeguts per excel·lir en la creació de rutes complexes com voltes al món o grans rutes temàtiques com la Costa Amalfitana i per oferir les millors<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cobertures d’assegurances per a estades llargues. 
+                </p>
+            </section>
+            <hr>
+            <section class="Missio">
+                <h3 class="sub-titul-pag-sobre">La Nostra Missió</h3>
+                <p>La missió de Viatges Únics S.L i de tot l’equip que s’ha reunit a <strong>L’Agenda Viatgera</strong> és simple: transformar la manera com viatgeu. Nosaltres ens encarreguem de tota la planificació i la logística, perquè vosaltres només us hàgiu de preocupar de viure l’aventura.</p>
+                <p><strong>Viatges únics, experiències inoblidables. Reserva ara la teva aventura.</strong></p>
+                <a href="Contacte.html" class="boto-contacte">Contactans</a>
+            </section>
+            <hr>
+            <section class="Dades">
+                <h3 class="sub-titul-pag-sobre">Dades</h3>
+                <h4 class="sub-sub-titul-pag-sobre">Amb Qui Compartim Les Vostres Dades?</h4>
+                <p>Si sol·liciteu un restabliment de contrasenya (en cas d’existir un sistema d’usuaris), l’adreça IP (Protocol d’Internet) s’inclourà en el correu electrònic de reinicialització per motius de seguretat. Les dades recollides a través de formularis de contacte o reserva s’utilitzen exclusivament per a la gestió comercial i de reserves.</p>
+                <h4 class="sub-sub-titul-pag-sobre">Quant Temps Retenim Les Dades?</h4>
+                <p><strong>Usuaris Registrats:</strong> Per als usuaris que es registren al lloc web, també emmagatzemem la informació personal que proporcionen al seu perfil d’usuari. Tots els usuaris poden veure, editar o suprimir la seva informació personal en qualsevol moment (excepte que no poden canviar el seu nom d’usuari). Els administradors del lloc web també poden veure i editar aquesta informació.</p>
+                <p><strong>Comentaris:</strong> Si deixeu un comentari al nostre blog, el comentari i les seves metadades es retenen indefinidament. Això ens permet reconèixer i aprovar automàticament qualsevol comentari de seguiment en lloc de mantenir-lo en la cua de moderació.</p>
+                <h4 class="sub-sub-titul-pag-sobre">Quins Drets Teniu Sobre Les Vostres Dades</h4>
+                <p><strong>Drets dels Usuaris</strong></p>
+                <p>Qualsevol persona té dret a obtenir confirmació sobre si a Viatges Únics S.L. estem tractant dades personals que els concerneixen o no.</p>
+                <p>Com a usuari, teniu dret a:
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>1. Accés:</strong> Demanar si estem tractant les vostres dades i, si escau, a quines dades tenim.
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>2. Rectificació:</strong> Sol·licitar la modificació de dades inexactes o incompletes.
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>3. Supressió (Dret a l’Oblid):</strong> Demanar la supressió de les dades que ja no siguin necessàries.
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>4. Oposició i Limitació:</strong> Oposar-se al tractament de les vostres dades o demanar-ne la limitació.
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>5. Portabilitat:</strong> Sol·licitar un fitxer d’exportació de les vostres dades personals.
+                </p>
+                <p>Per exercir els vostres drets, heu d’enviar una sol·licitud per escrit al correu electrònic [correu electrònic específic de Protecció de Dades] o a la nostra adreça postal, incloent-hi una còpia d’un document d’identitat (DNI/NIE).</p>
+                <div class="excepcion-box">
+                    <p><strong>Excepció:</strong> Aquesta política no inclou les dades que estiguem obligats a conservar per a propòsits administratius, legals o de seguretat.</p>
+                </div>
+                <h4 class="sub-sub-titul-pag-sobre">On S’Envien Les Vostres Dades</h4>
+                <p>Els comentaris dels visitants es comproven mitjançant un servei de detecció automàtica de brossa (spam). Les dades personals introduïdes en els formularis de reserva o contacte s’envien al nostre departament comercial mitjançant un servidor segur i no es transfereixen a tercers sense el vostre consentiment explícit, excepte quan sigui necessari per a la gestió del vostre viatge.</p>
+            </section>
+        </section>
+    </section>
+    <footer class="peudepagina">
+        <div class="contingut-peu">
+            <div class="peu-pag newsletter-peu">
+                <h4>No et perdis cap viatge!</h4>
+                <p>Subscriu-te a la nostra newsletter i rep consells i ofertes exclusives.</p>
+                <form action="0Confirmacio.html" method="POST" class="newsletter-form">
+                    <input type="email" name="email" placeholder="Introdueix el teu correu electrònic" required>
+                    <button type="submit" class="newsletter-btn">Subscriu-me</button>
+                </form>
+            </div>
+            <div class="peu-pag link-peu">
+                <h4>Seccions</h4>
+                <ul>
+                    <li><a href="L'Agenda_Viatgera_Home.html">Inici</a></li>
+                    <li><a href="Blog.html">Blog</a></li>
+                    <li><a href="Guies_i_Consells.html">Guies i Consells</a></li>
+                    <li><a href="Contacte.html">Contacte</a></li>
+                </ul>
+            </div>
+            <div class="peu-pag xarxa-peu">
+                <h4>Informació Legal</h4>
+                <ul>
+                    <li><a href="Politica_Priv.html">Política de Privacitat</a></li>
+                    <li><a href="Contacte.html">Contacte</a></li>
+                </ul>
+                <table class="xarxes">
+                <tr class="sin-puntos">
+                    <td><a href="https://www.instagram.com" target="_blank">
+                            <img src="Icones/Instagram.jpeg" alt="Instagram" title="Instagram" width="50">
+                        </a>
+                    </td>
+                    <td><a href="https://twitter.com" target="_blank">
+                            <img src="Icones/Twitter.png" alt="Twitter" title="Twitter" width="50">
+                        </a>
+                    </td>
+                    <td><a href="https://www.facebook.com" target="_blank">
+                            <img src="Icones/Facebook.png" alt="Facebook" title="Facebook" width="50">
+                        </a>
+                    </td>
+                </tr>
+                </table>
+            </div>
+        <div class="copyright">
+            <p>&copy; 2025 L'Agenda Viatgera. Tots els drets reservats.</p>
+        </div>
+    </div>
+    </footer>
+    </body>
+</html>

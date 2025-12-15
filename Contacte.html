@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ca">
+    <head>
+        <meta charset="UTF-8">
+        <title>L'Agenda Viatgera</title>
+        <meta name="description" content="El Millors viatges, experiencies i consells, tot aqui.">
+        <link rel="icon" href="icono_L'AgendaViatgera.ico" type="image/x-icon">
+        <style>
+            .main-header {
+            width: 100%;
+            border-bottom: 1px solid #eee; 
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); 
+            background-color: #fff;
+            }
+            .nav {
+                max-width: 1200px; 
+                margin: 0 auto; 
+                display: flex; 
+                justify-content: space-between;
+                align-items: center; 
+                padding: 0 20px; 
+            }
+            .logo-link {
+                display: flex;
+                align-items: center;
+                text-decoration: none; 
+                color: #000; 
+            }
+            .logo-img {
+                content: url("icono_L\'AgendaViatgera.png");
+                width: auto;
+                height: 50px;
+                margin-right: 10px;
+            }
+            .logo-text {
+                display: none;
+            }
+            .nav-llista {
+                list-style: none; 
+                padding: 0;
+                margin: 0;
+                display: flex; 
+            }
+            .nav-item {
+                margin-left: 30px;
+            }
+            .nav-link {
+                text-decoration: none; 
+                color: #333; 
+                font-size: 1em;
+                font-weight: 400;
+                transition: color 0.3s;
+            }
+            .nav-link:hover {
+                color: #c9622d; 
+            }
+            .Contacte {
+                background-color: #f7f3e8;
+            }
+            .Pag-Contacte {
+                background-color: white;
+                border-radius: 10px;
+                margin-bottom: 20px;
+                margin-top: 20px;
+                margin-right: 200px;
+                margin-left: 200px;
+                overflow: hidden;
+                padding: 60px 20px;
+                text-align: left;
+            }
+            .titul-pag-contacte {
+                color: #0d2c4e;
+                font-size: 2.5em;
+                margin-bottom: 40px;
+            }
+            .sub-titul-pag-contacte {
+                color: #0d2c4e;
+                font-size: 1em;
+                margin-bottom: 40px;
+            }
+            .prim-part {
+                padding: 20px;
+                text-align: justify;
+            }
+            .boto-més {
+                display: inline-block;
+                padding: 10px 20px;
+                background-color: #e56d35;
+                color: white;
+                text-decoration: none;
+                border-radius: 4px;
+                font-weight: bold;
+                margin-top: 15px;
+            }
+            .peudepagina {
+                background-color: #0d2c4e; 
+                color: white;
+                padding-top: 50px;
+            }
+            .contingut-peu {
+                display: grid;
+                grid-template-columns: 2fr 1fr 1fr; 
+                gap: 40px;
+                padding: 0 20px 40px;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+            .peu-pag h4 {
+                color: #ffffff;
+                font-size: 1.2em;
+                margin-bottom: 20px;
+                border-bottom: 2px solid #e56d35;
+                padding-bottom: 5px;
+                display: inline-block;
+            }
+            .peu-pag ul {
+                list-style: none;
+                padding: 0;
+            }
+            .peu-pag ul li {
+                margin-bottom: 8px;
+            }
+            .peu-pag ul li a {
+                color: #cccccc;
+                text-decoration: none;
+                font-size: 0.95em;
+                transition: color 0.3s;
+            }
+            .peu-pag ul li a:hover {
+                color: #e56d35;
+            }
+            .newsletter-form {
+                display: flex;
+                margin-top: 15px;
+            }
+            .newsletter-form input[type="email"] {
+                padding: 10px;
+                border: none;
+                border-radius: 4px 0 0 4px;
+                flex-grow: 1;
+            }
+            .newsletter-btn {
+                padding: 10px 15px;
+                background-color: #e56d35; 
+                color: white;
+                border: none;
+                border-radius: 0 4px 4px 0;
+                cursor: pointer;
+                font-weight: bold;
+                transition: background-color 0.3s;
+            }
+            .newsletter-btn:hover {
+                background-color: #c95c2d;
+            }
+            .xarxes {
+                margin-top: 20px;
+            }
+            .xarxes img {
+                font-size: 1.5em;
+                color: #cccccc;
+                margin-right: 15px;
+                text-decoration: none;
+                transition: color 0.3s;
+            }
+            .xarxes img:hover{
+                transform: scale(1.2);
+                filter: drop-shadow(0 0 8px #e56d35);
+            }
+            .copyright {
+                text-align: center;
+                padding: 15px 20px;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+                font-size: 0.8em;
+                color: #cccccc;
+            }
+            .titul-secció {
+                color:#0d2c4e;
+            }
+            .contacte-form {
+                background-color: #ffffff;
+                padding: 25px;
+                border-radius: 12px;
+                border: 1px solid #e56d35;
+                width: 380px;
+                margin-left: 20px;
+                margin-right: 30px;
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            }
+            .contacte-label {
+                color: #e56d35;
+                font-weight: bold;
+                display: block;
+                margin-bottom: 5px;
+            }
+            .contacte-input, .contacte-textarea {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #444;
+                border-radius: 6px;
+                background-color: #f5f5f5;
+                color: white;
+                font-size: 15px;
+                margin-bottom: 15px;
+                transition: 0.3s;
+            }
+        </style>
+    </head>
+    <body>
+        <header class="main-header">
+        <nav class="nav">
+            <a class="logo">
+                <img src="icono_L'AgendaViatgera.png" alt="L'Agenda Viatgera Logo" class="logo-img">
+                <span class="logo-text">L'Agenda Viatgera</span>
+            </a>
+            <ul class="nav-llista">
+                <li class="nav-item"><a href="L'Agenda_Viatgera_Home.html" class="nav-link">Inici</a></li>
+                <li class="nav-item"><a href="Blog.html" class="nav-link">Blogs</a></li>
+                <li class="nav-item"><a href="Guies_i_Consells.html" class="nav-link">Guies i Consells</a></li>
+                <li class="nav-item"><a href="Sobre_Nosaltres.html" class="nav-link">Sobre Nosaltres</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="Contacte">
+        <section class="Pag-Contacte">
+            <h1 class="titul-pag-contacte">Contacte</h1>
+                <div>
+                    <table class="taula-inf">
+                    <tr class="sin-puntos">
+                        <td class="prim-part">
+                            <h2 class="titul-secció">Contacte Directe</h2>
+                            <p>Per a consultes immediates o per parlar directament amb un agent:</p>
+                            <p>
+                            <strong>Telèfon de Planificació i Reserves:</strong>
+                            <br><strong>+34 935 550 000</strong> (Horari: Dilluns a Divendres, 9:00h a 18:00h CET).
+                            </p>
+                            <p>
+                            <strong>Assistència 24/7 (Només per a Clients amb Reserva Confirmada):</strong>
+                            <br><strong>+34 691 777 333</strong> (Aquest número d’urgències es proporciona amb la documentació final del viatge).
+                            </p>
+                            <h2 class="titul-secció">Oficina Central</h2>
+                            <p>Si prefereixes una atenció presencial o per correu postal (demana cita prèvia per a una consulta):</p>
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>1. Raó Social:</strong> Viatges Únics S.L. (L’Agenda Viatgera)
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>2. Adreça:</strong> Rambla President Lluís Companys, 3, 43005 Tarragona
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>3. Correu Electrònic General:</strong> info@lagendaviatgera.com
+                        </td>
+                        <td><h2 class="titul-secció">Formulari de Contacte</h2>
+                            <form action="0Confirmacio.html" method="get" class="contacte-form">
+                                <label class="contacte-lable" for="name">&nbsp;&nbsp;Nom:</label>
+                                <input class="contacte-input" type="text" id="name" name="name" required><br><br>
+                                <label class="contacte-lable" for="email">&nbsp;&nbsp;Correu electrònic:</label>
+                                <input class="contacte-input" type="email" id="email" name="email" required><br><br>
+                                <label class="contacte-lable" for="message">&nbsp;&nbsp;Explicans el teu pla de viatge:</label><br>
+                                <textarea class="contacte-textarea" id="message" name="message" rows="5" cols="30" required></textarea><br><br>
+                                <label class="contacte-lable" for="country">&nbsp;&nbsp;País:</label>
+                                <input class="contacte-input" type="text" id="country" name="country"><br><br>
+                                <input type="checkbox" id="rgpd-accepta" name="rgpd-accepta" required>
+                                <label for="rgpd-accepta">He llegit i accepto la <a href="Politica_Priv.html" target="_blank">Política de Privacitat</a>. Consenteixo el tractament de les meves dades per respondre a la consulta.</label><br><br>
+                                <button type="submit" title="Enviar les teves respostes">Enviar</button>
+                            </form>
+                        </td>
+                    </tr>
+                    </table>
+                    <div class="boto-més">
+                        <a href="Sobre_Nosaltres.html">Més Informació</a>
+                    </div>
+                </div>
+        </section>
+    </section>
+    <footer class="peudepagina">
+        <div class="contingut-peu">
+            <div class="peu-pag newsletter-peu">
+                <h4>No et perdis cap viatge!</h4>
+                <p>Subscriu-te a la nostra newsletter i rep consells i ofertes exclusives.</p>
+                <form action="0Confirmacio.html" method="POST" class="newsletter-form">
+                    <input type="email" name="email" placeholder="Introdueix el teu correu electrònic" required>
+                    <button type="submit" class="newsletter-btn">Subscriu-me</button>
+                </form>
+            </div>
+            <div class="peu-pag link-peu">
+                <h4>Seccions</h4>
+                <ul>
+                    <li><a href="L'Agenda_Viatgera_Home.html">Inici</a></li>
+                    <li><a href="Blog.html">Blog</a></li>
+                    <li><a href="Guies_i_Consells.html">Guies i Consells</a></li>
+                    <li><a href="Sobre_Nosaltres.html">Sobre Nosaltres</a></li>
+                </ul>
+            </div>
+            <div class="peu-pag xarxa-peu">
+                <h4>Informació Legal</h4>
+                <ul>
+                    <li><a href="Politica_Priv.html">Política de Privacitat</a></li>
+                    <li><a href="Contacte.html">Contacte</a></li>
+                </ul>
+                <table class="xarxes">
+                <tr class="sin-puntos">
+                    <td><a href="https://www.instagram.com" target="_blank">
+                            <img src="Icones/Instagram.jpeg" alt="Instagram" title="Instagram" width="50">
+                        </a>
+                    </td>
+                    <td><a href="https://twitter.com" target="_blank">
+                            <img src="Icones/Twitter.png" alt="Twitter" title="Twitter" width="50">
+                        </a>
+                    </td>
+                    <td><a href="https://www.facebook.com" target="_blank">
+                            <img src="Icones/Facebook.png" alt="Facebook" title="Facebook" width="50">
+                        </a>
+                    </td>
+                </tr>
+                </table>
+            </div>
+        <div class="copyright">
+            <p>&copy; 2025 L'Agenda Viatgera. Tots els drets reservats.</p>
+        </div>
+    </div>
+    </footer>
+    </body>
+</html>

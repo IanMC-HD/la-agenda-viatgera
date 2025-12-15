@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ca">
+    <head>
+        <meta charset="UTF-8">
+        <title>L'Agenda Viatgera</title>
+        <meta name="description" content="El Millors viatges, experiencies i consells, tot aqui.">
+        <link rel="icon" href="icono_L'AgendaViatgera.ico" type="image/x-icon">
+        <style>
+            .main-header {
+            width: 100%;
+            border-bottom: 1px solid #eee; 
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); 
+            background-color: #fff;
+            }
+            .nav {
+                max-width: 1200px; 
+                margin: 0 auto; 
+                display: flex; 
+                justify-content: space-between;
+                align-items: center; 
+                padding: 0 20px; 
+            }
+            .logo-link {
+                display: flex;
+                align-items: center;
+                text-decoration: none; 
+                color: #000; 
+            }
+            .logo-img {
+                content: url("icono_L\'AgendaViatgera.png");
+                width: auto;
+                height: 50px;
+                margin-right: 10px;
+            }
+            .logo-text {
+                display: none;
+            }
+            .nav-llista {
+                list-style: none; 
+                padding: 0;
+                margin: 0;
+                display: flex; 
+            }
+            .nav-item {
+                margin-left: 30px;
+            }
+            .nav-link {
+                text-decoration: none; 
+                color: #333; 
+                font-size: 1em;
+                font-weight: 400;
+                transition: color 0.3s;
+            }
+            .nav-link:hover {
+                color: #c9622d; 
+            }
+            .Principi {
+                height: 400px;
+                background-image: url("Blogs/Portades/Bangkok.png"); 
+                background-size: cover; 
+                background-position: center; 
+                position: relative; 
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
+            .Principi-img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(97, 41, 14, 0.5); 
+                z-index: 1; 
+            }
+            .contingut-Principi {
+                position: relative;
+                z-index: 2; 
+                color: white;
+                max-width: 800px;
+                padding: 20px;
+            }
+            .contingut-Principi h1 {
+                font-size: 3em;
+                margin-bottom: 0.5em;
+            }
+            .contingut-Principi p {
+                font-size: 1.2em;
+                margin-bottom: 1.5em;
+            }
+            .Contingut {
+                background-color: #f7f3e8;
+            }
+            .Pag-Contingut {
+                background-color: white;
+                border-radius: 10px;
+                margin-bottom: 20px;
+                margin-top: 20px;
+                margin-right: 200px;
+                margin-left: 200px;
+                overflow: hidden;
+                padding: 60px 20px;
+                text-align: justify;
+            }
+            .contingut-inici {
+                padding: 10px;
+                text-align: justify;
+                margin-left: 50px;
+                margin-right: 50px;
+            }
+            .contingut-final {
+                padding: 10px;
+                text-align: center;
+                margin-left: 50px;
+                margin-right: 50px;
+            }
+            hr {
+                margin-left: 100px;
+                margin-right: 100px;
+            }
+            .Titul-apartat {
+                color: #0d2c4e;
+                font-size: 2em;
+                margin-bottom: 40px;
+                margin-top: 40px;
+                margin-right: 30px;
+                margin-left: 30px;
+                text-align: left;
+            }
+            table {
+                border-collapse: separate; 
+                width: 145%;
+            }
+            .colm-imm {
+            width: 50%;
+            padding: 0;
+            vertical-align: top;
+            }
+            .imatge-targeta {
+            width: 100%; 
+            height: auto; 
+            object-fit: cover; 
+            }
+            .text-targeta {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            font-size: 16px;
+            width: 40%;
+            padding: 15px;
+            vertical-align: top;
+            }
+            .peudepagina {
+                background-color: #0d2c4e; 
+                color: white;
+                padding-top: 50px;
+            }
+            .contingut-peu {
+                display: grid;
+                grid-template-columns: 2fr 1fr 1fr; 
+                gap: 40px;
+                padding: 0 20px 40px;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+            .peu-pag h4 {
+                color: #ffffff;
+                font-size: 1.2em;
+                margin-bottom: 20px;
+                border-bottom: 2px solid #e56d35;
+                padding-bottom: 5px;
+                display: inline-block;
+            }
+            .peu-pag ul {
+                list-style: none;
+                padding: 0;
+            }
+            .peu-pag ul li {
+                margin-bottom: 8px;
+            }
+            .peu-pag ul li a {
+                color: #cccccc;
+                font-size: 0.95em;
+                transition: color 0.3s;
+            }
+            .peu-pag ul li a:hover {
+                color: #e56d35;
+            }
+            .newsletter-form {
+                display: flex;
+                margin-top: 15px;
+            }
+            .newsletter-form input[type="email"] {
+                padding: 10px;
+                border: none;
+                border-radius: 4px 0 0 4px;
+                flex-grow: 1;
+            }
+            .newsletter-btn {
+                padding: 10px 15px;
+                background-color: #e56d35; 
+                color: white;
+                border: none;
+                border-radius: 0 4px 4px 0;
+                cursor: pointer;
+                font-weight: bold;
+                transition: background-color 0.3s;
+            }
+            .newsletter-btn:hover {
+                background-color: #c95c2d;
+            }
+            .xarxes {
+                margin-top: 20px;
+            }
+            .xarxes img {
+                font-size: 1.5em;
+                color: #cccccc;
+                margin-right: 15px;
+                text-decoration: none;
+                transition: color 0.3s;
+            }
+            .xarxes img:hover{
+                transform: scale(1.2);
+                filter: drop-shadow(0 0 8px #e56d35);
+            }
+            .copyright {
+                text-align: center;
+                padding: 15px 20px;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+                font-size: 0.8em;
+                color: #cccccc;
+            }
+        </style>
+    </head>
+    <body>
+        <header class="main-header">
+        <nav class="nav">
+            <a class="logo">
+                <img src="icono_L'AgendaViatgera.png" alt="L'Agenda Viatgera Logo" class="logo-img">
+                <span class="logo-text">L'Agenda Viatgera</span>
+            </a>
+            <ul class="nav-llista">
+                <li class="nav-item"><a href="L'Agenda_Viatgera_Home.html" class="nav-link">Inici</a></li>
+                <li class="nav-item"><a href="Blog.html" class="nav-link">Blogs</a></li>
+                <li class="nav-item"><a href="Guies_i_Consells.html" class="nav-link">Guies i Consells</a></li>
+                <li class="nav-item"><a href="Contacte.html" class="nav-link">Contacte</a></li>
+                <li class="nav-item"><a href="Sobre_Nosaltres.html" class="nav-link">Sobre Nosaltres</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="Principi">
+        <div class="Principi-img">
+            <div class="contingut-Principi">
+                <h1>Costa Amalfitana:<br>El Somni Italià en Cotxe</h1>
+                <p>Consells essencials per recórrer una de les carreteres més belles del món i trobar allotjament econòmic.</p>
+                <cite>Publicat per: Pau Miro</cite>
+            </div>
+        </div>
+    </section>
+    <section class="Contingut">
+        <section class="Pag-Contingut">
+            <hr>
+            <h3 class="contingut-inici">La Costa Amalfitana (Itàlia) és un somni fet realitat: penya-segats dramàtics, pobles de colors penjats al mar i l'aroma a llimona per tot arreu. Viatjar amb la família per aquesta zona pot semblar un luxe inabastable, però us asseguro que amb una mica de planificació, es pot gaudir d'una de les carreteres més belles del món sense arruïnar-se. Aquí us deixo els nostres consells clau!</h3>
+            <hr>
+            <table class="table">
+                <tr class="sin-puntos">
+                    <td class="colm-img">
+                        <img src="Blogs/IMG/Costa/SS.png" alt="SS d'Italia'" class="imatge-targeta">
+                    </td>
+                    <td>
+                        <h2 class="Titul-apartat">1. La Joia de la Corona:<br>La Carretera SS 163</h2>
+                        <p class="text-targeta">La Strada Statale 163 Amalfitana és la columna vertebral de la costa. El nostre consell principal: No us obsessioneu amb llogar un cotxe. La carretera és estreta, sinuosa, i l'aparcament és caríssim i escàs.</p>
+                        <p class="text-targeta"><strong>Com moure's (sense pagar pàrquing):</strong>
+                        <br>La millor opció (i la més econòmica) és el transport públic.
+                        <br><strong>Autobusos SITA SUD:</strong> Connecten tots els pobles des de Sorrento fins a Salerno. Són barats i us permeten gaudir de les vistes sense l'estrès de la conducció.
+                        <br><strong>Ferri/Vaixell:</strong> Entre els pobles principals (Amalfi, Positano, Maiori). És més ràpid que l'autobús i ofereix les millors vistes de la costa des del mar. És un must familiar!
+                        </p>
+                    </td>
+                </tr>
+                <tr class="sin-puntos">
+                    <td>
+                        <h2 class="Titul-apartat">2. Allotjament Intel·ligent:<br>On Estalviar</h2>
+                        <p>Els pobles icònics com <strong>Positano</strong> o <strong>Amalfi</strong> són cars. Vam trobar que la clau per a un viatge familiar assequible és allotjar-se a les zones menys turístiques però ben connectades:
+                            <br><strong>Vietri sul Mare o Cava de' Tirreni (a prop de Salerno):</strong> Són excel·lents opcions com a base, amb preus més baixos i bones connexions de transport.
+                            <br><strong>Maiori o Minori:</strong> Pobles encantadors, més tranquils que els seus veïns famosos i amb una millor oferta de platges i restauració per a famílies, a preus més raonables.
+                        </p>
+                        <p>Consell extra: Busqueu agriturismi (cases rurals) a la part alta de la muntanya (per exemple, a Agerola). Són més econòmics, ofereixen àpats casolans deliciosos i tenen vistes increïbles, tot i que dependreu més de l'autobús.</p>
+                    </td>
+                    <td>
+                        <h2 class="Titul-apartat">3. El Secret de la Cuina Local</h2>
+                        <p>Per estalviar, eviteu els restaurants davant del mar a Positano. Busqueu:
+                            <br><strong>Trattories a l'interior:</strong> Menú del dia (o menú fisso) a l'hora de dinar.
+                            <br><strong>Pizzeries:</strong> Sempre una opció econòmica, deliciosa i familiar.
+                            <br><strong>Menjar al forn (gastronomia):</strong> Botigues que venen pasta i plats preparats per emportar (com lasagna o parmigiana) que podeu gaudir a la platja o al vostre apartament.
+                        </p>
+                        <p>La Costa Amalfitana és màgica. Amb aquests petits trucs, podreu gaudir de les seves vistes i la seva cultura sense gastar una fortuna.</p>
+                    </td>
+                </tr>
+                <tr class="sin-puntos">
+                    <td class="colm-img">
+                        <img src="Blogs/IMG/Costa/Sentero.png" alt="El Sentiero d'Italia" class="imatge-targeta">
+                    </td>
+                    <td>
+                        <h2 class="Titul-apartat">4. Experiències Imprescindibles (i Gratuïtes!)</h2>
+                        <p class="text-targeta">No tot són compres i hotels de luxe. La veritable bellesa és accessible.
+                            <br><strong>El Camí dels Déus (Sentiero degli Dei):</strong> Una ruta de senderisme que va de Bomerano (Agerola) a Nocelle (a sobre de Positano). És gratuïta i ofereix les vistes més èpiques de la costa. És una activitat perfecta per fer amb els nens més grans.
+                            <br><strong>Passeig per Ravello:</strong> Ravello es troba a dalt del penya-segat i té una tranquil·litat única. Gaudir de la plaça central (Piazza Vescovado) i la vista des dels jardins públics (com els de Villa Rufolo o Villa Cimbrone) val molt la pena.
+                            <br><strong>Degustació de Llimoncello:</strong> La costa és famosa pels seus llimons enormes. Proveu el limoncello casolà o simplement compreu llimons frescos als mercats.
+                        </p>
+                    </td>
+                </tr>
+            </table>
+            <hr>
+            <h3 class="contingut-final">Espero que us agradi aquest enfocament més pràctic i amb consells d'estalvi! T'agradaria afegir o canviar algun poble o consell?</h3>
+        </section>
+    </section>
+    <footer class="peudepagina">
+        <div class="contingut-peu">
+            <div class="peu-pag newsletter-peu">
+                <h4>No et perdis cap viatge!</h4>
+                <p>Subscriu-te a la nostra newsletter i rep consells i ofertes exclusives.</p>
+                <form action="0Confirmacio.html" method="POST" class="newsletter-form">
+                    <input type="email" name="email" placeholder="Introdueix el teu correu electrònic" required>
+                    <button type="submit" class="newsletter-btn">Subscriu-me</button>
+                </form>
+            </div>
+            <div class="peu-pag link-peu">
+                <h4>Seccions</h4>
+                <ul>
+                    <li><a href="L'Agenda_Viatgera_Home.html">Inici</a></li>
+                    <li><a href="Blog.html">Blog</a></li>
+                    <li><a href="Guies_i_Consells.html">Guies i Consells</a></li>
+                    <li><a href="Contacte.html">Contacte</a></li>
+                </ul>
+            </div>
+            <div class="peu-pag xarxa-peu">
+                <h4>Informació Legal</h4>
+                <ul>
+                    <li><a href="Politica_Priv.html">Política de Privacitat</a></li>
+                    <li><a href="Contacte.html">Contacte</a></li>
+                </ul>
+                <table class="xarxes">
+                <tr class="sin-puntos">
+                    <td><a href="https://www.instagram.com" target="_blank">
+                            <img src="Icones/Instagram.jpeg" alt="Instagram" title="Instagram" width="50">
+                        </a>
+                    </td>
+                    <td><a href="https://twitter.com" target="_blank">
+                            <img src="Icones/Twitter.png" alt="Twitter" title="Twitter" width="50">
+                        </a>
+                    </td>
+                    <td><a href="https://www.facebook.com" target="_blank">
+                            <img src="Icones/Facebook.png" alt="Facebook" title="Facebook" width="50">
+                        </a>
+                    </td>
+                </tr>
+                </table>
+            </div>
+        <div class="copyright">
+            <p>&copy; 2025 L'Agenda Viatgera. Tots els drets reservats.</p>
+        </div>
+    </div>
+    </footer>
+    </body>
+</html>

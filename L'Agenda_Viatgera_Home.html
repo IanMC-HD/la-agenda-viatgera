@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ca">
+    <head>
+        <meta charset="UTF-8">
+        <title>L'Agenda Viatgera</title>
+        <meta name="description" content="El Millors viatges, experiencies i consells, tot aqui.">
+        <link rel="icon" href="icono_L'AgendaViatgera.ico" type="image/x-icon">
+        <style>
+            .main-header {
+            width: 100%;
+            border-bottom: 1px solid #eee; 
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); 
+            background-color: #fff;
+            }
+            .nav {
+                max-width: 1200px; 
+                margin: 0 auto; 
+                display: flex; 
+                justify-content: space-between;
+                align-items: center; 
+                padding: 0 20px; 
+            }
+            .logo-link {
+                display: flex;
+                align-items: center;
+                text-decoration: none; 
+                color: #000; 
+            }
+            .logo-img {
+                content: url("icono_L\'AgendaViatgera.png");
+                width: auto;
+                height: 50px;
+                margin-right: 10px;
+            }
+            .logo-text {
+                display: none;
+            }
+            .nav-llista {
+                list-style: none; 
+                padding: 0;
+                margin: 0;
+                display: flex; 
+            }
+            .nav-item {
+                margin-left: 30px;
+            }
+            .nav-link {
+                text-decoration: none; 
+                color: #333; 
+                font-size: 1em;
+                font-weight: 400;
+                transition: color 0.3s;
+            }
+            .nav-link:hover {
+                color: #c9622d; 
+            }
+            .Inici {
+                background-color: #f7f3e8;
+                padding: 60px 20px;
+                text-align: center;
+            }
+            .titul-inici {
+                color: #0d2c4e;
+                font-size: 2.5em;
+                margin-bottom: 40px;
+            }
+            .sub-titul-inici {
+                color: #0d2c4e;
+                font-size: 1em;
+                margin-bottom: 40px;
+            }
+            .blog-destacats {
+                padding: 60px 20px;
+                text-align: center;
+            }
+            .seccio-titul {
+                color: #0d2c4e;
+                font-size: 2.5em;
+                margin-bottom: 40px;
+            }
+            .apartat-blog {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr); 
+                gap: 30px;
+            }
+            .targeta-blog {
+                background-color: white;
+                border-radius: 8px;
+                overflow: hidden;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                transition: transform 0.3s, box-shadow 0.3s;
+                text-align: left;
+            }
+            .targeta-blog:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            }
+            .imatge-targeta {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+            }
+            .contingut {
+                padding: 20px;
+            }
+            .contingut h3 {
+                color: #000000;
+                font-size: 1.2em;
+                margin-top: 0;
+                margin-bottom: 10px;
+            }
+            .contingut p {
+                color: #333333;
+                font-size: 0.9em;
+                margin-bottom: 15px;
+            }
+            .boto-llegeix-mes {
+                display: inline-block;
+                padding: 10px 20px;
+                background-color: #e56d35;
+                color: white;
+                text-decoration: none;
+                border-radius: 4px;
+                font-weight: bold;
+                margin-top: 15px;
+            }
+            .buto-llegeix-mes:hover {
+                background-color: #c95c2d;
+            }
+            .testimonis {
+                padding: 60px 20px;
+                text-align: center;
+            }
+            .comentari-testimonis {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr); 
+                gap: 30px;
+            }
+            .testimoni-1 {
+                background-color: white;
+                padding: 30px;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+                text-align: center;
+                border-top: 5px solid #63b392;
+            }
+            .comentari {
+                font-style: italic;
+                color: #333;
+                margin-bottom: 20px;
+                line-height: 1.6;
+            }
+            .info-autor {
+                border-top: 1px solid #eee;
+                padding-top: 15px;
+            }
+            .puntuacio {
+                display: block;
+                color: #e56d35;
+                margin-bottom: 5px;
+                font-size: 1.2em;
+            }
+            .autor {
+                font-weight: bold;
+                color: #0d2c4e;
+                margin: 0;
+            }
+            .links {
+                padding: 60px 20px;
+            }
+            .guies {
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 40px;
+                background-color: white;
+                border-radius: 8px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+                text-align: center;
+            }
+            .titul-guies {
+                color: #0d2c4e;
+                font-size: 1.8em;
+                margin-bottom: 10px;
+            }
+            .llista-guies {
+                list-style: none;
+                padding: 0;
+                margin: 20px 0;
+                text-align: left;
+            }
+
+            .llista-guies li {
+                margin-bottom: 10px;
+            }
+            .link-guia {
+                display: flex;
+                align-items: center;
+                text-decoration: none;
+                font-size: 1.1em;
+                color: #333;
+                transition: color 0.3s;
+            }
+            .link-guia:hover {
+                color: #e56d35;
+            }
+            .boto-guies {
+                display: inline-block;
+                padding: 10px 20px;
+                background-color: #e56d35;
+                color: white;
+                text-decoration: none;
+                border-radius: 4px;
+                font-weight: bold;
+                margin-top: 15px;
+            }
+            .peudepagina {
+                background-color: #0d2c4e; 
+                color: white;
+                padding-top: 50px;
+            }
+            .contingut-peu {
+                display: grid;
+                grid-template-columns: 2fr 1fr 1fr; 
+                gap: 40px;
+                padding: 0 20px 40px;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+            .peu-pag h4 {
+                color: #ffffff;
+                font-size: 1.2em;
+                margin-bottom: 20px;
+                border-bottom: 2px solid #e56d35;
+                padding-bottom: 5px;
+                display: inline-block;
+            }
+            .peu-pag ul {
+                list-style: none;
+                padding: 0;
+            }
+            .peu-pag ul li {
+                margin-bottom: 8px;
+            }
+            .peu-pag ul li a {
+                color: #cccccc;
+                text-decoration: none;
+                font-size: 0.95em;
+                transition: color 0.3s;
+            }
+            .peu-pag ul li a:hover {
+                color: #e56d35;
+            }
+            .newsletter-form {
+                display: flex;
+                margin-top: 15px;
+            }
+            .newsletter-form input[type="email"] {
+                padding: 10px;
+                border: none;
+                border-radius: 4px 0 0 4px;
+                flex-grow: 1;
+            }
+            .newsletter-btn {
+                padding: 10px 15px;
+                background-color: #e56d35; 
+                color: white;
+                border: none;
+                border-radius: 0 4px 4px 0;
+                cursor: pointer;
+                font-weight: bold;
+                transition: background-color 0.3s;
+            }
+            .newsletter-btn:hover {
+                background-color: #c95c2d;
+            }
+            .xarxes {
+                margin-top: 20px;
+            }
+            .xarxes img {
+                font-size: 1.5em;
+                color: #cccccc;
+                margin-right: 15px;
+                text-decoration: none;
+                transition: color 0.3s;
+            }
+            .xarxes img:hover{
+                transform: scale(1.2);
+                filter: drop-shadow(0 0 8px #e56d35);
+            }
+            .copyright {
+                text-align: center;
+                padding: 15px 20px;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+                font-size: 0.8em;
+                color: #cccccc;
+            }
+        </style>
+    </head>
+    <body>
+        <header class="main-header">
+        <nav class="nav">
+            <a class="logo">
+                <img src="icono_L'AgendaViatgera.png" alt="L'Agenda Viatgera Logo" class="logo-img">
+                <span class="logo-text">L'Agenda Viatgera</span>
+            </a>
+            <ul class="nav-llista">
+                <li class="nav-item"><a href="Blog.html" class="nav-link">Blogs</a></li>
+                <li class="nav-item"><a href="Guies_i_Consells.html" class="nav-link">Guies i Consells</a></li>
+                <li class="nav-item"><a href="Contacte.html" class="nav-link">Contacte</a></li>
+                <li class="nav-item"><a href="Sobre_Nosaltres.html" class="nav-link">Sobre Nosaltres</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="Inici">
+        <h1 class="titul-inici">La Teva Pròxima Aventura Comença Aquí</h1>
+        <h3 class="sub-titul-inici">Compartim rutes detallades, consells per estalviar i experiències autèntiques</h3>
+        <section class="blog-destacats">
+            <h2 class="seccio-titul">Històries de Viatge: Deixa't Inspirar</h2>
+            <div class="apartat-blog">
+                <article class="targeta-blog">
+                    <img src="Blogs/Portades/Hong-Kong.jpg" alt="Skyline de Hong Kong" class="imatge-targeta">
+                    <div class="contingut">
+                        <h3>Hong Kong: La Ciutat de les Mil Caras</h3>
+                        <p>Una guia completa per navegar per la metròpoli asiàtica: mercats nocturns, muntanyes i temples amagats.</p>
+                        <a href="B-Hong-Kong.html" class="boto-llegeix-mes">Llegeix més</a>
+                    </div>
+                </article>
+                <article class="targeta-blog">
+                    <img src="Blogs/Portades/Bangkok.png" alt="Temple Wat Arun a Bangkok" class="imatge-targeta">
+                    <div class="contingut">
+                        <h3>Bangkok: El Cor Vibrant de Tailàndia</h3>
+                        <p>De l'agitació dels carrers nocturns a tota mena de temples: descobreix la nostra ruta de 7 dies per la capital tailandesa.</p>
+                        <a href="B-Bangkok.html" class="boto-llegeix-mes">Llegeix més</a>
+                    </div>
+                </article>
+                <article class="targeta-blog">
+                    <img src="Blogs/Portades/Costa-Amalfitana.jpg" alt="Vistes de Positano, Costa Amalfitana" class="imatge-targeta">
+                    <div class="contingut">
+                        <h3>Costa Amalfitana: El Somni Italià en Cotxe</h3>
+                        <p>Consells essencials per recórrer una de les carreteres més belles del món i trobar allotjament econòmic.</p>
+                        <a href="B-Costa-Amalfitana.html" class="boto-llegeix-mes">Llegeix més</a>
+                    </div>
+                </article>
+                <article class="targeta-blog">
+                    <img src="Blogs/Portades/Islandia.jpg" alt="Aurores boreals a Islandia" class="imatge-targeta">
+                    <div class="contingut">
+                        <h3>Islàndia a l'Hivern: La Guia Definitiva de les Aurores</h3>
+                        <p>Tot el que necessites saber per organitzar un viatge al país del gel i el foc amb el mínim pressupost.</p>
+                        <a href="B-Islandia.html" class="boto-llegeix-mes">Llegeix més</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+            <section class="testimonis">
+            <div class="testimoni-contingut">
+                <h2 class="titul-seccio">Què diuen els nostres viatgers?</h2>
+                <div class="comentari-testimonis">
+                    <article class="testimoni-1">
+                        <p class="comentari">"L'Agenda Viatgera va dissenyar una ruta de nou mesos (Àsia, Oceania i Sud-amèrica) gestionant tots els vols complexos i els visats. La logística va ser impecable. Quan vam tenir un petit contratemps, la seva assistència 24/7 ho va resoldre en una hora. Simplement, la millor inversió."</p>
+                        <div class="info-autor">
+                            <span class="puntuacio">5/5</span>
+                            <p class="autor">Júlia Pons (Barcelona)</p>
+                        </div>
+                    </article>
+                    <article class="testimoni-1">
+                        <p class="comentari">"Gràcies als consells experts, vam tenir un itinerari de 7 dies per la Costa Amalfitana perfectament organitzat, amb reserves i recomanacions de trattories locals increïbles. Vam viure la Dolce Vita sense cap mena d'estrès."</p>
+                        <div class="info-autor">
+                            <span class="puntuacio">5/5</span>
+                            <p class="autor">Miquel i Laura Soler (Girona)</p>
+                        </div>
+                    </article>
+                    <article class="testimoni-1">
+                        <p class="comentari">"Volia evitar els llocs massificats de Tailàndia. L'Agenda Viatgera em va dissenyar una ruta de tres setmanes que combinava trekking i allotjaments únics a illes gairebé desertes. La seva especialització en Àsia és evident."</p>
+                        <div class="info-autor">
+                            <span class="puntuacio">5/5</span>
+                            <p class="autor">Carla Gimeno (València)</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section class="links">
+            <div class="links-continguts">
+                <div class="guies">
+                    <h3 class="titul-guies">Comença el teu viatge</h3>
+                    <p>Accedeix a les nostres guies pràctiques per planificar sense errors:</p>
+                    <ul class="llista-guies">
+                        <li>
+                            <a href="Guia_Maleta.html" class="link-guia">10 errors comuns a l'hora de viatjar</a>
+                        </li>
+                        <li>
+                            <a href="Guia_Viatge.html" class="link-guia">Millor forma de fer una maleta per a viatges llargs i curts</a>
+                        </li>
+                    </ul>
+                    <a href="Guies_i_Consells.html" class="boto-guies">Veure Totes les Guies</a>
+                </div>
+            </div>
+        </section>
+    </section>
+    <footer class="peudepagina">
+        <div class="contingut-peu">
+            <div class="peu-pag newsletter-peu">
+                <h4>No et perdis cap viatge!</h4>
+                <p>Subscriu-te a la nostra newsletter i rep consells i ofertes exclusives.</p>
+                <form action="0Confirmacio.html" method="POST" class="newsletter-form">
+                    <input type="email" name="email" placeholder="Introdueix el teu correu electrònic" required>
+                    <button type="submit" class="newsletter-btn">Subscriu-me</button>
+                </form>
+            </div>
+            <div class="peu-pag link-peu">
+                <h4>Seccions</h4>
+                <ul>
+                    <li><a href="Blog.html">Blog</a></li>
+                    <li><a href="Guies_i_Consells.html">Guies i Consells</a></li>
+                    <li><a href="Contacte.html">Contacte</a></li>
+                    <li><a href="Sobre_Nosaltres.html">Sobre Nosaltres</a></li>
+                </ul>
+            </div>
+            <div class="peu-pag xarxa-peu">
+                <h4>Informació Legal</h4>
+                <ul>
+                    <li><a href="Politica_Priv.html">Política de Privacitat</a></li>
+                    <li><a href="Contacte.html">Contacte</a></li>
+                </ul>
+                <table class="xarxes">
+                <tr class="sin-puntos">
+                    <td><a href="https://www.instagram.com" target="_blank">
+                            <img src="Icones/Instagram.jpeg" alt="Instagram" title="Instagram" width="50">
+                        </a>
+                    </td>
+                    <td><a href="https://twitter.com" target="_blank">
+                            <img src="Icones/Twitter.png" alt="Twitter" title="Twitter" width="50">
+                        </a>
+                    </td>
+                    <td><a href="https://www.facebook.com" target="_blank">
+                            <img src="Icones/Facebook.png" alt="Facebook" title="Facebook" width="50">
+                        </a>
+                    </td>
+                </tr>
+                </table>
+            </div>
+        <div class="copyright">
+            <p>&copy; 2025 L'Agenda Viatgera. Tots els drets reservats.</p>
+        </div>
+    </div>
+    </footer>
+    </body>
+</html>
